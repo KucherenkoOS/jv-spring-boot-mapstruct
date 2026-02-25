@@ -29,7 +29,8 @@ public interface StudentMapper {
     Student toModel(CreateStudentRequestDto requestDto);
 
     @AfterMapping
-    default void setGroupAndSubjects(@MappingTarget Student student, CreateStudentRequestDto requestDto) {
+    default void setGroupAndSubjects(@MappingTarget Student student,
+                                     CreateStudentRequestDto requestDto) {
         if (requestDto.groupId() != null) {
             Group group = new Group();
             group.setId(requestDto.groupId());
